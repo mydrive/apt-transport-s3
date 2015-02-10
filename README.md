@@ -1,5 +1,12 @@
-apt-s3
-------
+# Building with the MyDrive docker deb-builder image
+
+    docker run --rm -i -v `pwd`:/usr/src/myapp -w /usr/src/myapp mydrive/precise-deb-builder make deb
+
+# Uploading the built package to an s3 repo using [deb-s3](https://github.com/krobertson/deb-s3)
+
+    deb-s3 upload --bucket <your bucket> --arch amd64 --visibility private <path-to-newly-build-deb-file>
+
+# apt-s3
 additional "s3" protocol for apt so you can host your giant apt repository in s3 on the cheap!
 
 Author: Kyle Shank
@@ -10,11 +17,6 @@ THIS NEEDS MORE DOCUMENTATION OBVIOUSLY
 
 TODO
 ----
-* Makefile
-* Package up binaries
-* Include uploader script to get repository into s3 bucket
-* Explain this a little more
-
 This has to be compiled with the source version of apt.
 
 Once compiled, the resulting s3 binary must be placed in /usr/lib/apt/methods/ along with the other protocol binaries.
