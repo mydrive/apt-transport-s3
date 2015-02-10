@@ -4,7 +4,7 @@
 
 # Uploading the built package to an s3 repo using [deb-s3](https://github.com/krobertson/deb-s3)
 
-    deb-s3 upload --bucket <your bucket> --arch amd64 --visibility private <path-to-newly-build-deb-file>
+    deb-s3 upload --bucket <your bucket> --arch amd64 <path-to-newly-build-deb-file>
 
 # apt-s3
 additional "s3" protocol for apt so you can host your giant apt repository in s3 on the cheap!
