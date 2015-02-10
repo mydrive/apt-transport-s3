@@ -23,3 +23,13 @@
 *.i*86
 *.x86_64
 *.hex
+
+s3
+apt-transport-s3_*.0.0-1.dsc
+apt-transport-s3_*.tar.gz
+apt-transport-s3_*.changes
+apt-transport-s3_*.deb
+debian/apt-transport-s3.debhelper.log
+debian/apt-transport-s3.substvars
+debian/apt-transport-s3/
+debian/files

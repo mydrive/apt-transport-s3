@@ -25,7 +25,14 @@ $(BIN): $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(BIN)
+	rm -f apt-transport-*
+	rm -f debian/apt-transport-s3.debhelper.log debian/apt-transport-s3.substvars  debian/files
+	rm -rf debian/apt-transport-s3/
 
 install: s3
 	mkdir -p $(DESTDIR)/usr/lib/apt/methods/
 	cp $(BIN) $(DESTDIR)/usr/lib/apt/methods/
+
+deb:
+	dpkg-buildpackage -us -uc
+	mv ../apt-transport-* .
